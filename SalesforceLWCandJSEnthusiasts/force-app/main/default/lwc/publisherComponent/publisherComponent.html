@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Publisher Component">
+        <div class="slds-p-horizontal-small">
+            <lightning-input type="text" onchange={inputTextHandler} 
+            placeholder="Enter Message to Send"></lightning-input>
+        </div>
+        <br>
+        <div class="slds-p-horizontal-small">
+            <lightning-button variant="brand" label="Publish"
+            onclick={publishHandler}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

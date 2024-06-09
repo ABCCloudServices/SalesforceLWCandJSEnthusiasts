@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Subscriber Component" variant="base">
+      <div class="slds-p-horizontal-small">
+        Message Received From Publisher Comp : <strong>{messageReceived}</strong>
+      </div>
+      <br>
+      <div class="slds-p-horizontal-small">
+        <lightning-button variant="brand" label="Subscribe"
+            onclick={subscriberHandler}>
+        </lightning-button>
+        &nbsp; &nbsp;&nbsp;
+        <lightning-button variant="brand" label="UnSubscribe"
+            onclick={unSubscriberHandler}></lightning-button>
+      </div>
+    </lightning-card>
+</template>
