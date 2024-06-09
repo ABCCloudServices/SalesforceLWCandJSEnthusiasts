@@ -2,6 +2,7 @@ import { LightningElement, wire } from 'lwc';
 import msgService from '@salesforce/messageChannel/lmsDemo__c';
 import { publish,MessageContext } from 'lightning/messageService';
 export default class PublisherComponent extends LightningElement {
+    //Get Message Context using Wire Service
     @wire(MessageContext)
     messageContext
     
@@ -9,7 +10,8 @@ export default class PublisherComponent extends LightningElement {
     inputTextHandler(event){
         this.inputMessage = event.target.value;
     }
-    
+
+    //LM Publish Handler
     publishHandler(){
         const message = {
             lmsData : {
