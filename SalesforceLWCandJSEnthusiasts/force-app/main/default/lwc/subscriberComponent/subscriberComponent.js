@@ -7,14 +7,15 @@ import msgService from "@salesforce/messageChannel/lmsDemo__c";
 export default class SubscriberComponent extends LightningElement {
   subscription = null;
   messageReceived = ''
-  
+
   //Get MessageContext using Wire Serivce
   @wire(MessageContext)
   messageContext;
 
   // Standard lifecycle hooks used to subscribe and unsubsubscribe to the message channel
   connectedCallback() {
-    this.subscription = subscribe(this.messageContext,msgService,(message)=>{this.handleMessage(message)},{scope:APPLICATION_SCOPE});
+    this.subscription = subscribe(this.messageContext,msgService,
+        (message)=>{this.handleMessage(message)},{scope:APPLICATION_SCOPE});
   }
   //Subscribe Handler
   subscriberHandler() {

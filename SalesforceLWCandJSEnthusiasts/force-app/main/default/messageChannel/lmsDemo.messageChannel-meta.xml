@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>DemoMessageChannel</masterLabel>
+    <isExposed>true</isExposed>
+    <description>This is a demo Lightning Message Channel.</description>
+    
+<!--A list of message payload fields for a given Lightning Message Channel.-->
+    <lightningMessageFields>
+        <fieldName>recordId</fieldName>
+        <description>This is the record Id that changed</description>
+    </lightningMessageFields>
+    <lightningMessageFields>
+        <fieldName>recordData</fieldName>
+        <description>The current data representing the record that changed</description>
+    </lightningMessageFields>
+
+</LightningMessageChannel>
