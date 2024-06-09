@@ -11,7 +11,7 @@ export default class PublisherComponent extends LightningElement {
         this.inputMessage = event.target.value;
     }
 
-    //LM Publish Handler
+    //LMS Publish Handler
     publishHandler(){
         const message = {
             lmsData : {
