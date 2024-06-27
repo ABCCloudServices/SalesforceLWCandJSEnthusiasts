@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="BMI Calculator"  icon-name="action:new_note">
+        <form>
+        <div class="slds-var-p-around_small">
+            <lightning-input type="text" label=" Enter your Age"  name="age" onchange={handler} class="slds-var-p-around_small"></lightning-input>
+            <lightning-radio-group name="Gender"
+            label="Gender"
+            options={options}
+            onchange={handleRadioChange}
+            value={Gen}
+            type="radio" class="slds-var-p-around_small"></lightning-radio-group>
+
+            <lightning-input type="text" placeholder="enter height in cm" label="Height" name="height" class="slds-var-p-around_small" onchange={handler}></lightning-input>
+            <lightning-input type="text" placeholder="enter weight in kg" label="weight" name="weight" class="slds-var-p-around_small" onchange={handler}></lightning-input>
+        </div>
+        
+       
+        <div class="slds-var-p-around_small">
+            <lightning-button variant="brand" label="calculatebmi" class="slds-var-p-around_small"  onclick={Calculatorhandler}></lightning-button>
+            <lightning-button label="what is BMI?" onclick={openModal} class="slds-var-p-around_small"></lightning-button>
+          <lightning-button label="Reset" variant="destructive" onclick={Calculatorhandler} class="slds-var-p-around_small"></lightning-button>
+        </div>
+        <template if:true={showModal}>
+            <div class="modal-container slds-var-p-around_small">
+                <div class="modal-header">BMI </div>
+                <div class="modal-body">
+                    The Body Mass Index (BMI) is a value derived from a person’s weight and height, expressed in units of kg/m², used to broadly categorize individuals based on tissue mass and height12. It does not differentiate muscle mass from fat mass
+                </div>
+                <div class="modal-footer">
+                    <lightning-button label="Close" onclick={closeModal}></lightning-button>
+                </div>
+            </div>
+            <div class="modal-backdrop"></div>
+        </template>
+        
+        <template lwc:if={displayoutput}>
+            <div class="slds-var-p-around_small">
+            <p > Your BMI Is : {bmi}</p>
+            <p > According to the your age:{age},Gender:{Gen},weight:{weight} and height:{het}   your BMI is =>{result}</p>
+        </div>
+        </template>
+    </form>
+        
+
+    </lightning-card>
+</template>

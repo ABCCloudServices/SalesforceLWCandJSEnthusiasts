@@ -1,0 +1,39 @@
+<template>
+    <lightning-card title="Currency convertor"   icon-name="utility:currency">
+      <form>
+        <div class="format slds-var-p-around_small">
+         <!--Input Amt-->
+         <lightning-input  label="Enter AMount"  name="amount" onchange={handler}>
+         </lightning-input>
+
+        </div>
+        <div class="format slds-var-p-around_small">
+             <!--convert currency-->
+             <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                  <lightning-input  label="FROM Currency"  name="fromcurr" onchange={handler}></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-input label="To Currency" name="Tocurr" onchange={handler} ></lightning-input>
+                </div>
+                </div>
+              </div>
+        
+        <div class="format slds-var-p-around_small">
+             <!--submit-->
+             <lightning-button class="format slds-var-p-around_small" label="Convert"   variant="brand" onclick={ClickHandler}></lightning-button>
+             <lightning-button class="format slds-var-p-around_small" label="reset"    onclick={Clickreset}></lightning-button>
+
+        </div>
+
+        <template lwc:if={showoutput}>
+        <div class="format slds-var-p-around_small">
+            <!--displayresult-->
+             <p>converted value: {Rate} {symbol}
+            </p>
+       </div>
+    </template>
+
+  </form>
+    </lightning-card>
+</template>
