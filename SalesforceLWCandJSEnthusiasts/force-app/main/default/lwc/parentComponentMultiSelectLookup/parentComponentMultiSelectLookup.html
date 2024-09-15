@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Multi-Select Lookup Example">
+        <div class="slds-p-around_medium">
+            <c-multi-select-lookup
+                object-name="Contact"
+                field-name="Name"
+                placeholder="Search Contacts..."
+                onselectionchange={handleSelectionChange}>
+            </c-multi-select-lookup>
+        </div>
+        <div class="slds-p-around_medium">
+            <h3>Selected Contacts:</h3>
+            <template if:true={selectedContacts}>
+                <ul>
+                    <template for:each={selectedContacts} for:item="contact">
+                        <li key={contact.Id}>{contact.label}</li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+</template>
