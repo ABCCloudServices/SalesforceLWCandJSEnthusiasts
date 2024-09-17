@@ -1,0 +1,71 @@
+<template>
+    <lightning-card>
+        <div class="slds-grid slds-gutters slds-wrap">
+            <!-- Available Items -->
+            <div class="slds-col slds-size_1-of-2 slds-p-left_medium">
+                <lightning-card title="Available Items">
+                    <div
+                        class="dropzone slds-p-around_medium"
+                        ondragover={handleDragOver}
+                        ondragenter={handleDragEnter}
+                        ondragleave={handleDragLeave}
+                        ondrop={handleDrop}
+                        data-list="available"
+                        role="list">
+                        <template for:each={availableItems} for:item="item">
+                            <div
+                                key={item.id}
+                                class="draggable slds-box slds-box_x-small slds-m-bottom_small"
+                                draggable="true"
+                                data-id={item.id}
+                                ondragstart={handleDragStart}
+                                tabindex="0"
+                                role="listitem"
+                                aria-grabbed="false">
+                                <lightning-icon
+                                    icon-name="utility:drag"
+                                    size="x-small"
+                                    class="slds-m-right_x-small">
+                                </lightning-icon>
+                                {item.label}
+                            </div>
+                        </template>
+                    </div>
+                </lightning-card>
+            </div>
+
+            <!-- Selected Items -->
+            <div class="slds-col slds-size_1-of-2 slds-p-right_medium">
+                <lightning-card title="Selected Items">
+                    <div
+                        class="dropzone slds-p-around_medium"
+                        ondragover={handleDragOver}
+                        ondragenter={handleDragEnter}
+                        ondragleave={handleDragLeave}
+                        ondrop={handleDrop}
+                        data-list="selected"
+                        role="list">
+                        <template for:each={selectedItems} for:item="item">
+                            <div
+                                key={item.id}
+                                class="draggable slds-box slds-box_x-small slds-m-bottom_small"
+                                draggable="true"
+                                data-id={item.id}
+                                ondragstart={handleDragStart}
+                                tabindex="0"
+                                role="listitem"
+                                aria-grabbed="false">
+                                <lightning-icon
+                                    icon-name="utility:drag"
+                                    size="x-small"
+                                    class="slds-m-right_x-small">
+                                </lightning-icon>
+                                {item.label}
+                            </div>
+                        </template>
+                    </div>
+                </lightning-card>
+            </div>
+        </div>
+    </lightning-card>
+</template>

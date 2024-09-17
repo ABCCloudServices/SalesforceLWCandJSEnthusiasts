@@ -1,0 +1,28 @@
+/* Style for draggable items */
+.draggable {
+    background-color: var(--lwc-colorBackground);
+    border: 1px solid var(--lwc-colorBorder);
+    border-radius: var(--lwc-borderRadiusMedium);
+    display: flex;
+    align-items: center;
+    padding: var(--lwc-spacingSmall);
+    cursor: move;
+}
+
+.draggable:hover {
+    background-color: var(--lwc-colorBackgroundShade);
+}
+
+/* Style for drop zones */
+.dropzone {
+    min-height: 200px;
+    background-color: var(--lwc-colorBackgroundAlt);
+    border: 1px dashed var(--lwc-colorBorder);
+    border-radius: var(--lwc-borderRadiusMedium);
+}
+
+/* Visual feedback when an item is dragged over a drop zone */
+.dropzone.drag-over {
+    background-color: var(--lwc-colorBackgroundShade);
+    border-color: var(--lwc-colorBorderFocus);
+}
