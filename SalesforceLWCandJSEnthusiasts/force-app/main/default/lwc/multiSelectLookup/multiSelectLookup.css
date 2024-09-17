@@ -1,0 +1,8 @@
+.slds-combobox_container {
+    width: 100%;
+}
+
+.slds-pill {
+    display: inline-flex;
+    margin: 0.25rem 0.25rem 0 0;
+}

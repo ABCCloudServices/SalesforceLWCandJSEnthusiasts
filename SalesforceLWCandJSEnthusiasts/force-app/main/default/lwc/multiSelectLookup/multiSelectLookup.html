@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-m-bottom_small">
+        <lightning-input type="text" placeholder={placeholder} value={searchTerm} onchange={handleSearchTermChange}>
+        </lightning-input>
+        <template if:true={showDropdown}>
+            <lightning-card class="slds-m-top_small">
+                <template if:true={searchResults.length}>
+                    <ul class="slds-list_dotted">
+                        <template for:each={searchResults} for:item="record">
+                            <li key={record.Id} data-id={record.Id} onclick={handleOptionSelect}>
+                                <p>{record.displayValue}</p>
+                            </li>
+                        </template>
+                    </ul>
+                </template>
+                <template if:false={searchResults.length}>
+                    <p>No results found</p>
+                </template>
+            </lightning-card>
+        </template>
+    </div>
+    <div class="slds-m-top_small">
+        <lightning-pill-container items={selectedRecords} onitemremove={handleRemove}></lightning-pill-container>
+    </div>
+</template>
