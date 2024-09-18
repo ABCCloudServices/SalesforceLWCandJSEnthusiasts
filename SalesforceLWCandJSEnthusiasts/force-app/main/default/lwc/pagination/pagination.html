@@ -1,0 +1,40 @@
+<template>
+    <div class="slds-m-around_medium">
+        <div class="slds-grid slds-grid_align-spread slds-m-bottom_small">
+            <!-- Left navigation buttons -->
+            <div>
+                <lightning-button
+                    label="First"
+                    onclick={goToFirstPage}
+                    disabled={isFirstPage}
+                    class="slds-m-right_x-small">
+                </lightning-button>
+                <lightning-button
+                    label="Previous"
+                    onclick={goToPreviousPage}
+                    disabled={isFirstPage}>
+                </lightning-button>
+            </div>
+
+            <!-- Page indicator -->
+            <div class="slds-align_absolute-center">
+                Page {currentPage} of {totalPages}
+            </div>
+
+            <!-- Right navigation buttons -->
+            <div>
+                <lightning-button
+                    label="Next"
+                    onclick={goToNextPage}
+                    disabled={isLastPage}
+                    class="slds-m-right_x-small">
+                </lightning-button>
+                <lightning-button
+                    label="Last"
+                    onclick={goToLastPage}
+                    disabled={isLastPage}>
+                </lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

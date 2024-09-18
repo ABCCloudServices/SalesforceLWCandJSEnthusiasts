@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Accounts with Pagination">
+        <!-- Data Table to display accounts -->
+        <lightning-datatable
+            key-field="Id"
+            data={accounts}
+            columns={columns}
+            selected-rows={selectedRows}
+            onrowselection={handleRowSelection}>
+        </lightning-datatable>
+
+        <!-- Pagination Component -->
+        <c-pagination
+            current-page={currentPage}
+            total-records={totalRecords}
+            page-size={pageSize}
+            onpagechange={handlePageChange}>
+        </c-pagination>
+
+        <!-- Optional: Button to process selected records -->
+        <div class="slds-m-top_medium">
+            <lightning-button
+                label="Process Selected Records"
+                onclick={handleProcessSelected}
+                variant="brand"
+                class="slds-m-left_x-small">
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>
