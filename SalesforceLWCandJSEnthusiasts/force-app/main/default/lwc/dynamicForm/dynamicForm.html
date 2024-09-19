@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Dynamic Form">
+      <div class="slds-p-around_medium">
+        <template for:each={fields} for:item="field">
+          <div key={field.apiName} class="slds-m-bottom_small">
+            <template if:true={field.isText}>
+              <lightning-input
+                label={field.label}
+                name={field.apiName}
+                type="text"
+                required={field.required}
+                value={field.value}
+                onchange={handleInputChange}>
+              </lightning-input>
+            </template>
+            <template if:true={field.isEmail}>
+              <lightning-input
+                label={field.label}
+                name={field.apiName}
+                type="email"
+                required={field.required}
+                value={field.value}
+                onchange={handleInputChange}>
+              </lightning-input>
+            </template>
+            <template if:true={field.isPicklist}>
+              <lightning-combobox
+                label={field.label}
+                name={field.apiName}
+                required={field.required}
+                value={field.value}
+                options={field.options}
+                onchange={handleInputChange}>
+              </lightning-combobox>
+            </template>
+            <!-- Add more field types as needed -->
+          </div>
+        </template>
+        <lightning-button label="Submit" variant="brand" onclick={handleSubmit}></lightning-button>
+      </div>
+    </lightning-card>
+  </template>
+  
