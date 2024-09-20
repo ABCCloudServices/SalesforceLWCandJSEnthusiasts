@@ -1,0 +1,14 @@
+<template>
+    <!-- Lightning Card with a title to display the header -->
+    <lightning-card title="Dynamic Virtual List">
+        <!-- Padding around the virtual list for consistent spacing -->
+        <div class="slds-p-around_medium">
+            <!-- Include the virtual list component and pass necessary attributes -->
+            <c-virtual-list
+                items={largeDataSet}
+                item-height="80"
+                container-height="300">
+            </c-virtual-list>
+        </div>
+    </lightning-card>
+</template>

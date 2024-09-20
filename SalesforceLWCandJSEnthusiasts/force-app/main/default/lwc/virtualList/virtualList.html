@@ -1,0 +1,17 @@
+<template>
+    <!-- Container for the virtual list -->
+    <div class="virtual-list-container slds-scrollable_y" style={containerStyle}>
+        <!-- Spacer div to create the scrollable area -->
+        <div class="virtual-list-spacer" style={spacerStyle}></div>
+        <!-- Render visible items -->
+        <template for:each={visibleData} for:item="item">
+            <div
+                class="virtual-list-item slds-p-around_small slds-box slds-theme_default"
+                key={item.id}
+                style={item.style}>
+                <!-- Content of each item -->
+                <p class="slds-text-heading_small">{item.name}</p>
+            </div>
+        </template>
+    </div>
+</template>

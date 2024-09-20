@@ -1,0 +1,13 @@
+.virtual-list-container {
+    width: 100%;
+    overflow-y: auto;
+}
+
+.virtual-list-item {
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+}
+
+.virtual-list-item:hover {
+    background-color: var(--lwc-colorBackgroundAlt);
+}
