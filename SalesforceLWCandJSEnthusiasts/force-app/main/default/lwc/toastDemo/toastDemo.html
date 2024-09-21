@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Custom Toast Demo">
+      <div class="slds-p-around_medium">
+        <lightning-button label="Show Success Toast" onclick={showSuccessToast}></lightning-button>
+        <lightning-button label="Show Error Toast" onclick={showErrorToast} class="slds-m-left_small"></lightning-button>
+      </div>
+      <template if:true={showCustomToast}>
+        <c-custom-toast
+          variant={toastVariant}
+          message={toastMessage}
+          message-data={toastMessageData}
+          duration={toastDuration}
+          action-label={toastActionLabel}
+          onactionclick={handleActionClick}
+          onclose={handleToastClose}>
+        </c-custom-toast>
+      </template>
+    </lightning-card>
+  </template>
+  

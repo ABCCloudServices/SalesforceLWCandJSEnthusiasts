@@ -1,0 +1,33 @@
+<template>
+  <div if:true={showToast} class="slds-notify_container" style={toastStyle}>
+    <div class={toastClasses} role="status">
+      <span class="slds-assistive-text">{variant}</span>
+      <div class="slds-toast__content slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+        <!-- Icon Container -->
+        <div class="slds-toast__icon-container slds-m-right_small">
+          <lightning-icon icon-name={iconName} size="small" variant="inverse"></lightning-icon>
+        </div>
+        <!-- Message Content -->
+        <div class="slds-toast__message slds-truncate" title={message}>
+          <h2 class="slds-text-heading_small">{message}</h2>
+          <template if:true={messageData}>
+            <p>{messageData}</p>
+          </template>
+        </div>
+        <!-- Action Button -->
+        <template if:true={actionLabel}>
+          <div class="slds-m-left_small">
+            <lightning-button label={actionLabel} onclick={handleAction} variant="brand"></lightning-button>
+          </div>
+        </template>
+        <!-- Close Button -->
+        <div class="slds-notify__close slds-m-left_small">
+          <button class="slds-button slds-button_icon slds-button_icon-inverse" title="Close" onclick={closeToast}>
+            <lightning-icon icon-name="utility:close" size="small" variant="inverse"></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
