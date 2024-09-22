@@ -1,0 +1,76 @@
+<template>
+    <lightning-card title="Multi-Step Form Wizard">
+      <div class="slds-p-around_medium">
+        <!-- Progress Indicator -->
+        <lightning-progress-indicator current-step={currentStep} type="base" class="slds-m-bottom_medium">
+          <lightning-progress-step label="Personal Info" value="1"></lightning-progress-step>
+          <lightning-progress-step label="Address Details" value="2"></lightning-progress-step>
+          <lightning-progress-step label="Review & Submit" value="3"></lightning-progress-step>
+        </lightning-progress-indicator>
+  
+        <!-- Error Message -->
+        <template if:true={hasErrors}>
+          <div class="slds-text-color_error slds-m-bottom_small">
+            <lightning-icon icon-name="utility:error" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+            {errorMessage}
+          </div>
+        </template>
+  
+        <!-- Step Content -->
+        <div class="slds-transition-show">
+          <!-- Step 1: Personal Information -->
+          <template if:true={isStepOne}>
+            <div class="slds-m-top_medium">
+              <lightning-layout>
+                <lightning-layout-item size="6" padding="around-small">
+                  <lightning-input label="First Name" value={firstName} onchange={handleChange} name="firstName" required></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" padding="around-small">
+                  <lightning-input label="Last Name" value={lastName} onchange={handleChange} name="lastName" required></lightning-input>
+                </lightning-layout-item>
+              </lightning-layout>
+              <lightning-input label="Email" type="email" value={email} onchange={handleChange} name="email" required></lightning-input>
+            </div>
+          </template>
+  
+          <!-- Step 2: Address Details -->
+          <template if:true={isStepTwo}>
+            <div class="slds-m-top_medium">
+              <lightning-input label="Street" value={street} onchange={handleChange} name="street" required></lightning-input>
+              <lightning-layout>
+                <lightning-layout-item size="4" padding="around-small">
+                  <lightning-input label="City" value={city} onchange={handleChange} name="city" required></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="4" padding="around-small">
+                  <lightning-input label="State" value={state} onchange={handleChange} name="state" required></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="4" padding="around-small">
+                  <lightning-input label="Zip Code" value={zip} onchange={handleChange} name="zip" required></lightning-input>
+                </lightning-layout-item>
+              </lightning-layout>
+            </div>
+          </template>
+  
+          <!-- Step 3: Review & Submit -->
+          <template if:true={isStepThree}>
+            <div class="slds-m-top_medium slds-text-title_bold">
+              <p><strong>First Name:</strong> {firstName}</p>
+              <p><strong>Last Name:</strong> {lastName}</p>
+              <p><strong>Email:</strong> {email}</p>
+              <p><strong>Street:</strong> {street}</p>
+              <p><strong>City:</strong> {city}</p>
+              <p><strong>State:</strong> {state}</p>
+              <p><strong>Zip Code:</strong> {zip}</p>
+            </div>
+          </template>
+        </div>
+  
+        <!-- Navigation Buttons -->
+        <div class="slds-m-top_medium">
+          <lightning-button label="Previous" onclick={handlePrevious} class="slds-m-right_small" variant="neutral" disabled={isFirstStep}></lightning-button>
+          <lightning-button label={nextButtonLabel} onclick={handleNext} variant="brand"></lightning-button>
+        </div>
+      </div>
+    </lightning-card>
+  </template>
+  

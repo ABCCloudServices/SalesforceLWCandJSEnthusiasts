@@ -1,0 +1,12 @@
+/* Add transition effect for step content */
+.slds-transition-show {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+  }
+  
+  /* Style for error message */
+  .slds-text-color_error {
+    display: flex;
+    align-items: center;
+  }
+  
