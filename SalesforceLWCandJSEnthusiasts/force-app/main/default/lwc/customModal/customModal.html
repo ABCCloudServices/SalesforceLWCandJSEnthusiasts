@@ -1,29 +1,53 @@
 <template>
-    <template lwc:if={isModalOpen}>
-        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
-            <div class="slds-modal__container">
-              <!-- Modal/Popup Header -->
-              <header class="slds-modal__header">
-                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleClose}>
-                  <lightning-icon icon-name="utility:close" alternative-text="close"></lightning-icon>
-                </button>
-                <h2 class="slds-text-heading_medium">Modal Header</h2>
-              </header>
-        
-              <!-- Modal/Popup Body -->
-              <div class="slds-modal__content slds-p-around_medium">
-                <slot></slot> <!-- Dynamic content will be inserted here -->
-              </div>
-        
-              <!-- Modal/Popup Footer -->
-              <footer class="slds-modal__footer">
-                <button class="slds-button slds-button_neutral" onclick={handleClose}>Cancel</button>
-                <button class="slds-button slds-button_brand" onclick={handleConfirm}>Confirm</button>
-              </footer>
-            </div>
-          </section>
-        
-          <div class="slds-backdrop slds-backdrop_open"></div>
-    </template>
-  
+  <!-- Modal Overlay -->
+  <template lwc:if={isModalOpen}>
+    <section
+      role="dialog"
+      tabindex="-1"
+      aria-modal="true"
+      class="slds-modal slds-fade-in-open"
+    >
+      <div class="slds-modal__container">
+        <!-- Modal Header -->
+        <header class="slds-modal__header">
+          <!-- Close Button -->
+          <button
+            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+            title="Close"
+            onclick={handleClose}
+          >
+            <lightning-icon
+              icon-name="utility:close"
+              alternative-text="Close"
+            ></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+          <!-- Dynamic Modal Title -->
+          <h2 class="slds-text-heading_medium">{modalTitle}</h2>
+        </header>
+
+        <!-- Modal Body -->
+        <div class="slds-modal__content slds-p-around_medium">
+          <slot></slot> <!-- Dynamic content inserted here -->
+        </div>
+
+        <!-- Modal Footer -->
+        <footer class="slds-modal__footer">
+          <lightning-button
+            variant="neutral"
+            label={cancelLabel}
+            onclick={handleClose}
+          ></lightning-button>
+          <lightning-button
+            variant="brand"
+            label={confirmLabel}
+            onclick={handleConfirm}
+          ></lightning-button>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Backdrop -->
+    <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
 </template>

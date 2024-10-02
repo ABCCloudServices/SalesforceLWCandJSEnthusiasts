@@ -1,22 +1,23 @@
 import { LightningElement, track } from 'lwc';
 
-export default class ParentComponentModal extends LightningElement {
-  @track isModalOpen = false;
-    
-  // Open the modal
+export default class ParentComponent extends LightningElement {
+  isModalOpen = false;
+
+  // Opens the modal
   openModal() {
     this.isModalOpen = true;
   }
 
-  // Handle modal close
+  // Handles the modal close event
   handleModalClose() {
     this.isModalOpen = false;
+    // Additional logic can be added here
   }
 
-  // Handle modal confirm action (e.g., form submission, save)
+  // Handles the modal confirm event
   handleModalConfirm() {
-    // Perform any action you need upon confirmation
     this.isModalOpen = false;
-    console.log('Modal confirmed!');
+    // Implement the action to be taken on confirmation
+    // For example, save data or call an Apex method
   }
 }
