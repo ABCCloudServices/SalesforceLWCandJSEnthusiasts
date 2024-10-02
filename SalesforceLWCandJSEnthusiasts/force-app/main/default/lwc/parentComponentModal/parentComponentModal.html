@@ -1,0 +1,9 @@
+<template>
+    <lightning-button label="Open Modal" onclick={openModal}></lightning-button>
+    
+    <!-- Include the custom modal component -->
+    <c-custom-modal is-modal-open={isModalOpen} onmodalclose={handleModalClose} onmodalconfirm={handleModalConfirm}>
+      <p>Here you can place dynamic content like forms, text, or other components.</p>
+    </c-custom-modal>
+  </template>
+  
