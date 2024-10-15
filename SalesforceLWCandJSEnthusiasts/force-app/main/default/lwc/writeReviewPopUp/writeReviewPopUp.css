@@ -1,0 +1,30 @@
+.star-rating {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .star {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .star-svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .star-empty {
+    fill: #d8d8d8; /* Grey color for empty stars */
+  }
+  
+  .star-filled {
+    fill: #ffd700; /* Yellow color for filled stars */
+  }
+  
+  .slds-modal__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
