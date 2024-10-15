@@ -1,4 +1,5 @@
 import { LightningElement, api } from 'lwc';
+//This controller is and it's references are just for representation. Implement your own controller in order to work with this component.
 import saveReview from '@salesforce/apex/Controller.saveReview';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
