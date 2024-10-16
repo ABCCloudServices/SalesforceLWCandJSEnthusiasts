@@ -1,0 +1,41 @@
+<template>
+    <template if:true={isDataLoaded}>
+        <div class="slider-container">
+            <template if:true={currentImage}>
+                <div
+                    class="image-wrapper"
+                    onmousedown={startDrag}
+                    onmousemove={onDrag}
+                    onmouseup={endDrag}
+                    ontouchstart={startDrag}
+                    ontouchmove={onDrag}
+                    ontouchend={endDrag}
+                >
+                    <img src={currentImage.url} alt={currentImage.title} />
+                </div>
+                <template if:false={isTouchDevice}>
+                    <button
+                        class="nav-button left"
+                        onclick={handlePrev}
+                        aria-label="Previous Image"
+                    >
+                        ❮
+                    </button>
+                    <button
+                        class="nav-button right"
+                        onclick={handleNext}
+                        aria-label="Next Image"
+                    >
+                        ❯
+                    </button>
+                </template>
+            </template>
+            <template if:false={currentImage}>
+                <p>No images found for this record.</p>
+            </template>
+        </div>
+    </template>
+    <template if:false={isDataLoaded}>
+        <p>Loading images...</p>
+    </template>
+</template>

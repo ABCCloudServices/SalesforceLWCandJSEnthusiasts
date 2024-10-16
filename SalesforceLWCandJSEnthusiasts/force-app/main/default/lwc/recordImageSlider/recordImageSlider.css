@@ -1,0 +1,49 @@
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: auto;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Change to 'cover' to fill the container */
+}
+
+.nav-button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    user-select: none;
+    z-index: 1;
+}
+
+.nav-button.left {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.nav-button.right {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
